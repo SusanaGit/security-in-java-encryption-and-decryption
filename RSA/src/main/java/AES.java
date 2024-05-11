@@ -49,4 +49,8 @@ public class AES {
         return mensajeEncriptado;
     }
 
+    public String decrypt(String mensajeEncriptado) {
+
+    }
+
 }
