@@ -3,6 +3,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+
 public class AES {
 
     private SecretKey claveSecreta;
@@ -51,6 +52,9 @@ public class AES {
 
     public String decrypt(String mensajeEncriptado) {
 
+        byte[] mensajeEncriptadoEnBytes = Base64.getDecoder().decode(mensajeEncriptado);
+
+        return "";
     }
 
 }
