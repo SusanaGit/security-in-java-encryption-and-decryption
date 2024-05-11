@@ -28,7 +28,7 @@ public class AES {
         byte[] mensajeEnBytes = mensaje.getBytes();
 
         /*
-        Crea una instancia de Cipher para realizar operaciones de cifrado y descifrado
+        Crea una instancia de Cipher para realizar operaciones de cifrado
         usando el algoritmo AES (Advanced Encryption Standard)
         */
         Cipher encriptacionCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -50,9 +50,19 @@ public class AES {
         return mensajeEncriptado;
     }
 
-    public String decrypt(String mensajeEncriptado) {
+    public String decrypt(String mensajeEncriptado) throws NoSuchPaddingException, NoSuchAlgorithmException,
+            InvalidKeyException {
 
         byte[] mensajeEncriptadoEnBytes = Base64.getDecoder().decode(mensajeEncriptado);
+
+        /*
+        Crea una instancia de Cipher para realizar operaciones de descifrado
+        usando el algoritmo AES (Advanced Encryption Standard)
+        */
+        Cipher desencriptacionCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        desencriptacionCipher.init(Cipher.DECRYPT_MODE, claveSecreta);
+
+
 
         return "";
     }
