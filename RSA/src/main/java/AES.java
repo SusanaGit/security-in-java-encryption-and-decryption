@@ -19,7 +19,10 @@ public class AES {
         claveSecreta = generadorClaveSecreta.generateKey();
     }
 
-    public String encrypt(String message) {
+    public String encrypt(String mensaje) {
+
+        // pasamos el mensaje a array de bytes
+        byte[] mensajeEnBytes = mensaje.getBytes();
 
     }
 
