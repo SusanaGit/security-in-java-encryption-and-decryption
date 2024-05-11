@@ -1,9 +1,7 @@
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
+import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 public class AES {
 
@@ -22,7 +20,8 @@ public class AES {
         claveSecreta = generadorClaveSecreta.generateKey();
     }
 
-    public String encrypt(String mensaje) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
+    public String encrypt(String mensaje) throws NoSuchPaddingException, NoSuchAlgorithmException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 
         // Pasamos el mensaje a array de bytes
         byte[] mensajeEnBytes = mensaje.getBytes();
@@ -38,6 +37,12 @@ public class AES {
          */
         encriptacionCipher.init(Cipher.ENCRYPT_MODE, claveSecreta);
 
+        /*
+        Encriptamos el mensaje
+         */
+        byte[] mensajeEncriptadoBytes = encriptacionCipher.doFinal(mensajeEnBytes);
+
     }
+
 
 }
