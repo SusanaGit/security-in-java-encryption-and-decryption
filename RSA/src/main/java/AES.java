@@ -42,7 +42,11 @@ public class AES {
          */
         byte[] mensajeEncriptadoBytes = encriptacionCipher.doFinal(mensajeEnBytes);
 
+        /*
+        Convertimos el mensajeEncriptadoBytes en String
+         */
+        String mensajeEncriptado = Base64.getEncoder().encodeToString(mensajeEncriptadoBytes);
+        return mensajeEncriptado;
     }
-
 
 }
