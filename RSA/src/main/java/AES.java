@@ -19,4 +19,8 @@ public class AES {
         claveSecreta = generadorClaveSecreta.generateKey();
     }
 
+    public String encrypt(String message) {
+
+    }
+
 }
