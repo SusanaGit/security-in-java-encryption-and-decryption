@@ -15,6 +15,8 @@ public class AES {
          */
         int KEY_SIZE = 128;
         generadorClaveSecreta.init(KEY_SIZE);
+
+        claveSecreta = generadorClaveSecreta.generateKey();
     }
 
 }
