@@ -2,6 +2,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class AES {
@@ -21,15 +22,21 @@ public class AES {
         claveSecreta = generadorClaveSecreta.generateKey();
     }
 
-    public String encrypt(String mensaje) throws NoSuchPaddingException, NoSuchAlgorithmException {
+    public String encrypt(String mensaje) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
 
         // Pasamos el mensaje a array de bytes
         byte[] mensajeEnBytes = mensaje.getBytes();
 
-        /* Crea una instancia de Cipher para realizar operaciones de cifrado y descifrado
+        /*
+        Crea una instancia de Cipher para realizar operaciones de cifrado y descifrado
         usando el algoritmo AES (Advanced Encryption Standard)
         */
         Cipher encriptacionCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+
+        /*
+        Inicializo encriptacionCipher con el modo de encriptación y la clave secreta
+         */
+        encriptacionCipher.init(Cipher.ENCRYPT_MODE, claveSecreta);
 
     }
 
