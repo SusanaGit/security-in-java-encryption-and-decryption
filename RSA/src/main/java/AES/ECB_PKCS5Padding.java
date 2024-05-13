@@ -4,11 +4,29 @@ import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.Scanner;
 
 
 public class ECB_PKCS5Padding {
 
     private SecretKey claveSecreta;
+
+    static Scanner keyboard = new Scanner(System.in);
+
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException,
+            IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+        ECB_PKCS5Padding obj = new ECB_PKCS5Padding();
+        obj.init();
+
+        System.out.println("Introduce el mensaje: ");
+        String mensaje = keyboard.nextLine();
+
+        String mensajeEncriptado = obj.encrypt(mensaje);
+        System.out.println("Mensaje encriptado: " + mensajeEncriptado);
+
+        String mensajeDesencriptado = obj.decrypt(mensajeEncriptado);
+        System.out.println("Mensaje desencriptado: " + mensajeDesencriptado);
+    }
 
     public void init() throws NoSuchAlgorithmException {
         KeyGenerator generadorClaveSecreta =  KeyGenerator.getInstance("AES");
