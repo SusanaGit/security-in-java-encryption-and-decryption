@@ -69,7 +69,12 @@ public class ECB_PKCS5Padding {
          */
         byte[] mensajeDesencriptadoBytes = desencriptacionCipher.doFinal(mensajeEncriptadoEnBytes);
 
-        return "";
+        /*
+        Convertimos el mensaje desencriptado en bytes a string
+         */
+        String mensajeDesencriptado = new String(mensajeDesencriptadoBytes);
+
+        return mensajeDesencriptado;
     }
 
 }
