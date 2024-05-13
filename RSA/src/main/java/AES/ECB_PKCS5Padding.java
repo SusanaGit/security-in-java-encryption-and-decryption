@@ -53,7 +53,7 @@ public class ECB_PKCS5Padding {
     }
 
     public String decrypt(String mensajeEncriptado) throws NoSuchPaddingException, NoSuchAlgorithmException,
-            InvalidKeyException {
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 
         byte[] mensajeEncriptadoEnBytes = Base64.getDecoder().decode(mensajeEncriptado);
 
@@ -64,7 +64,10 @@ public class ECB_PKCS5Padding {
         Cipher desencriptacionCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         desencriptacionCipher.init(Cipher.DECRYPT_MODE, claveSecreta);
 
-
+        /*
+        Desencriptamos el mensaje
+         */
+        byte[] mensajeDesencriptadoBytes = desencriptacionCipher.doFinal(mensajeEncriptadoEnBytes);
 
         return "";
     }
