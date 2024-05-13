@@ -1,10 +1,12 @@
+package AES;
+
 import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 
-public class AES {
+public class ECB_PKCS5Padding {
 
     private SecretKey claveSecreta;
 
